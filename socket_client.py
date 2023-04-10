@@ -8,7 +8,7 @@ services = ['djxmmx.net', 'time.nist.gov', 'tcpbin.com']
 ports = [17, 13, 4242]
 
 
-for i in range(2):
+for i in range(3):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((services[i], ports[i]))
     logging.debug("Connecting to service: {} on port (${})".format(services[i], ports[i]))
