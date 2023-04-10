@@ -4,8 +4,8 @@ import threading
 
 logging.basicConfig(level=logging.DEBUG)
 
-services = ['djxmmx.net', 'time.nist.gov']
-ports = [17, 13]
+services = ['djxmmx.net', 'time.nist.gov', 'tcpbin.com']
+ports = [17, 13, 4242]
 
 
 for i in range(2):
@@ -13,7 +13,7 @@ for i in range(2):
     s.connect((services[i], ports[i]))
     logging.debug("Connecting to service: {} on port (${})".format(services[i], ports[i]))
     if(services[i] == 'tcpbin.com'):
-        s.send("Can you hear me?".encode())
+        s.send(b"Can you hear me?")
     data = s.recv(1024)
     logging.debug("Receiving data")
     s.close()
