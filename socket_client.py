@@ -13,7 +13,7 @@ for i in range(3):
     s.connect((services[i], ports[i]))
     logging.debug("Connecting to service: {} on port (${})".format(services[i], ports[i]))
     if(services[i] == 'tcpbin.com'):
-        s.send(b"Can you hear me?")
+        s.send("Can you hear me?".encode())
     data = s.recv(1024)
     logging.debug("Receiving data")
     s.close()
