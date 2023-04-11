@@ -11,7 +11,7 @@ ports = [17, 13, 4242]
 for i in range(3):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((services[i], ports[i]))
-    logging.debug("Connecting to service: {} on port (${})".format(services[i], ports[i]))
+    logging.info("Connecting to service: {} on port (${})".format(services[i], ports[i]))
     if(services[i] == 'tcpbin.com'):
         s.send("Can you hear me?\n".encode())
         s.settimeout(5)
@@ -20,4 +20,4 @@ for i in range(3):
     s.close()
     logging.debug("Closing connection")
     print("received data:", data.decode())
-    logging.debug("Printing data")
+    logging.info("Printing data")
